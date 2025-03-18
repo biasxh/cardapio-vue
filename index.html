@@ -47,7 +47,7 @@
                             <img :src="ketchup">
                             <img :src="mostarda">
                             <img :src="maionese">
-                            <img :src="burguer">
+                            <img :src="hamburguer">
                             <img :src="pao[1]">
 
 
@@ -62,15 +62,16 @@
                     <!-- Tipo de Pão -->
                     <div class="row mt-2">
                         <div class="col">
+
                             <div class="card">
+
                                 <div class=" card-header">
                                     Opções de Pão
                                 </div>
-                            </div>
-                            <div>
 
 
                                 <div class="card-body">
+
                                     <div class="form-check form-check-inline">
 
                                         <input type="radio" class="form-check-input" value="gergelim"
@@ -81,6 +82,7 @@
 
 
                                     </div>
+
                                     <!-- Pao Australiano -->
                                     <div class="form-check form-check-inline">
 
@@ -89,98 +91,252 @@
 
                                         <label class="form-check-label"> Australiano </label>
 
-
-
                                     </div>
-
-
 
                                 </div>
 
                             </div>
 
                         </div>
-
-
-
                         <!-- seleção de produtos -->
                     </div>
 
 
-                    <!-- SALADA --> 
-                     <div class="row mt-2">
+                    <!-- SALADA -->
+                    <div class="row mt-2">
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
-                                    Salada 
+                                    Salada
                                 </div>
-                                
+
                                 <div class="card-body">
-                                    
-                                    <div class="form-check">
-                                    
-                                    <input type="checkbox" class="form-check-input" value="alface" 
-                                    v-model="">
-                                    <label for=""> Alface </label>
-                                    
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="checkbox" class="form-check-input" value="alface"
+                                            v-model="inputSalada">
+                                        <label for=""> Alface </label>
                                     </div>
-                
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" value="tomate"
+                                            v-model="inputSalada">
+                                        <label for=""> Tomate </label>
+                                    </div>
+
+
                                 </div>
 
                             </div>
 
                         </div>
 
-                     </div>
+                    </div>
+                    <!-- Fim salada -->
+
+                    <!-- molhos -->
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    Molhos
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="form-check form-check-inline">
+
+                                        <input type="checkbox" class="form-check-input" value="ketchup"
+                                            v-model="inputMolhos">
+                                        <label for=""> Ketchup </label>
+
+
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" value="mostarda"
+                                            v-model="inputMolhos">
+                                        <label for=""> Mostarda </label>
+
+                                    </div>
+
+
+                                    <div class="form-check form-check-inline">
+                                        <input type="checkbox" class="form-check-input" value="maionese"
+                                            v-model="inputMolhos">
+                                        <label for=""> Maionese </label>
+
+                                    </div> <!-- Fim etapa 1 -->
 
 
 
-                </div> <!-- fim row -->
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- Fim molhos -->
+
+                    <!-- Tipos de Hamburguer -->
+                    <div class="row mt-2">
+                        <div class="col">
+                            <div class="card">
 
 
 
+                                <!-- TITULO - Tipos de Hamburguer -->
+                                <div class="card-header"> Tipo de Hamburguer
 
-                <!-- fim app -->
+                                </div>
+
+                                <!-- Card Body Tipos de Hamburguer -->
+                                <div class="card-body">
+
+                                    <!-- carne -->
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" value="bovino"
+                                            v-model="inputHamburguer">
+
+                                        <label class="form-check-label"> Bovino </label>
+                                    </div>
+
+                                    <!-- frango -->
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" value="frango"
+                                            v-model="inputHamburguer">
+
+                                        <label class="form-check-label"> Frango </label>
+                                    </div>
+
+                                    <!-- vegetal -->
+                                    <div class="form-check form-check-inline">
+                                        <input type="radio" class="form-check-input" value="soja"
+                                            v-model="inputHamburguer">
+
+                                        <label class="form-check-label"> Soja </label>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim Tipos Hamburguer -->
+
+                    <!-- Fazer pedido -->
+                    <div class="row mt-2">
+
+                        <div class="col d-flex justify-content-center-end">
+
+                            <button class="btn btn-primary">
+                                Fazer o Pedido
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- fim row -->
+                    <!-- fim app -->
+
+
+                </div> <!-- Fim etapa 1 -->
             </div>
-
-
         </div>
-        <!-- instancia VUE  -->
-        <script>
-            const vm = new Vue({
-                el: '#app',
+    </div>
 
-                /* atributos */
-                data: {
-                    inputTipoPao: '',
+    <!-- instancia VUE  -->
+    <script>
+        const vm = new Vue({
+            el: '#app',
 
-                    etapa: 1,
+            /* atributos */
+            data: {
+                inputTipoPao: '', /* radio = obrigatorio */
+                inputSalada: [], /* checkbox =  opcional */
+                inputMolhos: [], /* checkbox = opcional */
+                inputHamburguer: '', /* radio = obrigatorio */
 
+
+                etapa: 1,
+
+
+
+            },
+
+            /* imagens dos ingredientes */
+            computed: { /* propriedades computados // reativos */
+                pao() {
+                    switch (this.inputTipoPao) {
+                        case 'gergelim':
+                            return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
+                        case 'australiano':
+                            return ['imagens/pao_australiano_superior.png,', 'imagens/pao_australiano_inferior.png']
+                        default:
+                            return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
+                    }
+                },
+                alface() {
+                    if (this.inputSalada.includes('alface')) {
+                        return 'imagens/alface.png'
+                    }
+                    return 'imagens/padrao/alface.png'
+
+                },
+
+
+
+
+
+                ketchup() {
+                    if (this.inputMolhos.includes('ketchup')) {
+                        return 'imagens/ketchup.png'
+
+                    }
+
+                    return 'imagens/padrao/molho.png'
 
 
                 },
 
-                /* imagens dos ingredientes */
-                computed: {
-                    pao() {
-                        switch (this.inputTipoPao) {
-                            case 'gergelim':
-                                return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
-                            case 'australiano':
-                                return ['imagens/pao_australiano_superior.png,', 'imagens/pao_australiano_inferior.png']
-                            default:
-                                return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
-                        }
+                mostarda() {
+                    if (this.inputMolhos.includes('mostarda')) {
+                        return 'imagens/mostarda.png'
                     }
-                }
+                    return 'imagens/padrao/molho.png'
+                },
+
+                maionese() {
+                    if (this.inputMolhos.includes('maionese')) {
+                        return 'imagens/maionese.png'
+                    }
+                    return 'imagens/padrao/molho.png'
+                },
+
+                hamburguer() {
+                    switch (this.inputHamburguer) {
+                        case 'bovino':
+                            return 'imagens/bovino.png'
+                        case 'frango':
+                            return 'imagens/frango.png'
+                        case 'soja':
+                            return 'imagens/soja.png'
+                        default:
+                            return 'imagens/padrao/hamburguer.png'
+                    }
+                },
+
+
+            }
 
 
 
-            })
+        })
 
 
 
-        </script>
+    </script>
 
 </body>
 
