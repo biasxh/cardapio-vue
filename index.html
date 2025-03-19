@@ -86,7 +86,7 @@
                                     <!-- Pao Australiano -->
                                     <div class="form-check form-check-inline">
 
-                                        <input type="radio" class="form-check-input" value="Australiano"
+                                        <input type="radio" class="form-check-input" value="australiano"
                                             v-model="inputTipoPao">
 
                                         <label class="form-check-label"> Australiano </label>
@@ -184,8 +184,8 @@
 
 
                                 <!-- TITULO - Tipos de Hamburguer -->
-                                <div class="card-header"> Tipo de Hamburguer
-
+                                <div class="card-header">
+                                    Tipo de Hamburguer
                                 </div>
 
                                 <!-- Card Body Tipos de Hamburguer -->
@@ -226,9 +226,9 @@
                     <!-- Fazer pedido -->
                     <div class="row mt-2">
 
-                        <div class="col d-flex justify-content-center-end">
+                        <div class="col d-flex justify-content-end">
 
-                            <button class="btn btn-primary">
+                            <button class="btn btn-primary" type="button" @click="fazerPedido()">
                                 Fazer o Pedido
                             </button>
                         </div>
@@ -237,16 +237,38 @@
                     </div>
 
 
-                    <!-- fim row -->
-                    <!-- fim app -->
+
 
 
                 </div> <!-- Fim etapa 1 -->
-            </div>
-        </div>
-    </div>
 
+                <div class="col-md-6" v-if="etapa == 2">
+                    <div class="row mt-2">
+                        <div class=" col">
+                            <div class="card">
+                                
+                                Informe os seus dados 
+
+                                Nome 
+
+                                Mesa
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div><!-- fim row -->
+        </div><!-- fim app -->
+    </div>
     <!-- instancia VUE  -->
+
+''
     <script>
         const vm = new Vue({
             el: '#app',
@@ -272,7 +294,7 @@
                         case 'gergelim':
                             return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
                         case 'australiano':
-                            return ['imagens/pao_australiano_superior.png,', 'imagens/pao_australiano_inferior.png']
+                            return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
                         default:
                             return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
                     }
@@ -328,7 +350,20 @@
                 },
 
 
-            }
+            },
+
+            methods: {
+                fazerPedido() {
+                    //se Pão e Carne forem Selecionados
+                    if (this.inputTipoPao && this.inputHamburguer) {
+                        this.etapa = 2
+                        /* avança para etapa 2 */
+                    }
+                    else {
+                        alert('Você precisa selecionar no minimo um pão e uma carne')
+                    }
+                },
+            },
 
 
 
