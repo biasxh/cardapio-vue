@@ -185,7 +185,7 @@
 
                                 <!-- TITULO - Tipos de Hamburguer -->
                                 <div class="card-header">
-                                    Tipo de Hamburguer
+                                    Tipos de Hamburguer
                                 </div>
 
                                 <!-- Card Body Tipos de Hamburguer -->
@@ -296,122 +296,136 @@
 
                 </div> <!-- Fim etapa 2 -->
 
+                <div class="col-md-6" v-if="etapa == 3">
+                    <!-- pedido confirmado -->
+                    <div class="row mt-2">
+                        <div class=" col">
+                            <div class="card">
+                                <div class="card=header">
+                                    PEDIDO CONFIRMADO
+                                </div>
+                                <div class="card-body">
+                                    <p> Aguarde 10 minutos para o preparo! </p>
+                                    <p> Chamaremos você em breve </p>
 
-
-            </div><!-- Fim ROW -->
-        </div><!-- Fim APP -->
-    </div> <!-- Fim container -->
-
-    <!-- instancia VUE  -->
-    ''
-    <script>
-        const vm = new Vue({
-            el: '#app',
-
-
-            data: { // atributos //
-                etapa: 1,
-                inputTipoPao: '', /* radio = obrigatorio */
-                inputSalada: [], /* checkbox =  opcional */
-                inputMolhos: [], /* checkbox = opcional */
-                inputHamburguer: '', /* radio = obrigatorio */
-
-                inputNome: '',
-                inputMesa: '',
-
-
-            },
-
-            /* imagens dos ingredientes */
-            computed: { /* propriedades computados // reativos */
-                pao() {
-                    switch (this.inputTipoPao) {
-                        case 'gergelim':
-                            return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
-                        case 'australiano':
-                            return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
-                        default:
-                            return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
-                    }
-                },
-                alface() {
-                    if (this.inputSalada.includes('alface')) {
-                        return 'imagens/alface.png'
-                    }
-                    return 'imagens/padrao/alface.png'
-
-                },
-
-
-                ketchup() {
-                    if (this.inputMolhos.includes('ketchup')) {
-                        return 'imagens/ketchup.png'
-
-                    }
-
-                    return 'imagens/padrao/molho.png'
-
-
-                },
-
-                mostarda() {
-                    if (this.inputMolhos.includes('mostarda')) {
-                        return 'imagens/mostarda.png'
-                    }
-                    return 'imagens/padrao/molho.png'
-                },
-
-                maionese() {
-                    if (this.inputMolhos.includes('maionese')) {
-                        return 'imagens/maionese.png'
-                    }
-                    return 'imagens/padrao/molho.png'
-                },
-
-                hamburguer() {
-                    switch (this.inputHamburguer) {
-                        case 'bovino':
-                            return 'imagens/bovino.png'
-                        case 'frango':
-                            return 'imagens/frango.png'
-                        case 'soja':
-                            return 'imagens/soja.png'
-                        default:
-                            return 'imagens/padrao/hamburguer.png'
-                    }
-                },
-
-
-            },
-
-            methods: {
-                fazerPedido() {
-                    //se Pão e Carne forem Selecionados
-                    if (this.inputTipoPao && this.inputHamburguer) {
-                        this.etapa = 2
-                        /* avança para etapa 2 */
-                    }
-                    else {
-                        alert('Você precisa selecionar no minimo um Pão e uma Carne.')
-                    }
-                },
-                confirmarPedido() {
-                    if(this.inputNome && this.inputMesa) {
-                        this.etapa = 3
-                    }
-                    else {
-                        alert('Você precisa informar Nome e Número da Mesa.')
-                    }
-                },
-            },
+                                </div>
 
 
 
-        })
+                            </div><!-- Fim ROW -->
+                        </div><!-- Fim APP -->
+                    </div> <!-- Fim container -->
+
+                    <!-- instancia VUE  -->
+                    ''
+                    <script>
+                        const vm = new Vue({
+                            el: '#app',
+
+
+                            data: { // atributos //
+                                etapa: 1,
+                                inputTipoPao: '', /* radio = obrigatorio */
+                                inputSalada: [], /* checkbox =  opcional */
+                                inputMolhos: [], /* checkbox = opcional */
+                                inputHamburguer: '', /* radio = obrigatorio */
+
+                                inputNome: '',
+                                inputMesa: '',
+
+
+                            },
+
+                            /* imagens dos ingredientes */
+                            computed: { /* propriedades computados // reativos */
+                                pao() {
+                                    switch (this.inputTipoPao) {
+                                        case 'gergelim':
+                                            return ['imagens/pao_gergelim_superior.png', 'imagens/pao_gergelim_inferior.png']
+                                        case 'australiano':
+                                            return ['imagens/pao_australiano_superior.png', 'imagens/pao_australiano_inferior.png']
+                                        default:
+                                            return ['imagens/padrao/pao_superior.png', 'imagens/padrao/pao_inferior.png']
+                                    }
+                                },
+                                alface() {
+                                    if (this.inputSalada.includes('alface')) {
+                                        return 'imagens/alface.png'
+                                    }
+                                    return 'imagens/padrao/alface.png'
+
+                                },
+
+
+                                ketchup() {
+                                    if (this.inputMolhos.includes('ketchup')) {
+                                        return 'imagens/ketchup.png'
+
+                                    }
+
+                                    return 'imagens/padrao/molho.png'
+
+
+                                },
+
+                                mostarda() {
+                                    if (this.inputMolhos.includes('mostarda')) {
+                                        return 'imagens/mostarda.png'
+                                    }
+                                    return 'imagens/padrao/molho.png'
+                                },
+
+                                maionese() {
+                                    if (this.inputMolhos.includes('maionese')) {
+                                        return 'imagens/maionese.png'
+                                    }
+                                    return 'imagens/padrao/molho.png'
+                                },
+
+                                hamburguer() {
+                                    switch (this.inputHamburguer) {
+                                        case 'bovino':
+                                            return 'imagens/bovino.png'
+                                        case 'frango':
+                                            return 'imagens/frango.png'
+                                        case 'soja':
+                                            return 'imagens/soja.png'
+                                        default:
+                                            return 'imagens/padrao/hamburguer.png'
+                                    }
+                                },
+
+
+                            },
+
+                            methods: {
+                                fazerPedido() {
+                                    //se Pão e Carne forem Selecionados
+                                    if (this.inputTipoPao && this.inputHamburguer) {
+                                        this.etapa = 2
+                                        /* avança para etapa 2 */
+                                    }
+                                    else {
+                                        alert('Você precisa selecionar no minimo um Pão e uma Carne.')
+                                    }
+                                },
+                                confirmarPedido() {
+                                    if (this.inputNome && this.inputMesa) {
+                                        this.etapa = 3
+                                    }
+                                    else {
+                                        alert('Você precisa informar Nome e Número da Mesa.')
+                                    }
+                                },
+                            },
 
 
 
-    </script>
+                        })
+
+
+
+                    </script>
 
 </body>
 
