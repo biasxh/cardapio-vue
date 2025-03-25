@@ -245,7 +245,7 @@
                             <div class="card">
 
 
-                                <div class="card=header">
+                                <div class="card-header">
                                     Informe os seus dados
                                 </div><!-- Fim titulos -->
 
@@ -301,23 +301,40 @@
                     <div class="row mt-2">
                         <div class=" col">
                             <div class="card">
-                                <div class="card=header">
+                                <div class="card-header">
                                     PEDIDO CONFIRMADO
                                 </div>
                                 <div class="card-body">
-                                    <p> Aguarde 10 minutos para o preparo! </p>
-                                    <p> Chamaremos você em breve </p>
+                                    <p>Aguarde 10 minutos para o preparo!</p>
+                                    <p>Chamaremos você em breve.</p>
 
                                 </div>
 
 
 
-                            </div><!-- Fim ROW -->
-                        </div><!-- Fim APP -->
-                    </div> <!-- Fim container -->
+                            </div><!-- Fim card -->
+                        </div><!-- Fim COL -->
+                    </div> <!-- Fim ROW -->
+
+                    <div class="row mt-2">
+
+                        <div class="col d-flex justify-content-between">
+
+                            <button type="button" class="btn btn-primary" @click="etapa = 1">
+                                Repetir Pedido
+                            </button>
+
+                            <button type="button" class="btn btn-success" @click="novoPedido()">
+                                Novo Pedido
+                            </button>
+
+                        </div>
+
+
+                    </div>
 
                     <!-- instancia VUE  -->
-                    ''
+
                     <script>
                         const vm = new Vue({
                             el: '#app',
@@ -337,7 +354,7 @@
                             },
 
                             /* imagens dos ingredientes */
-                            computed: { /* propriedades computados // reativos */
+                            computed: { /* propriedades computadas // reativos */
                                 pao() {
                                     switch (this.inputTipoPao) {
                                         case 'gergelim':
@@ -417,6 +434,19 @@
                                         alert('Você precisa informar Nome e Número da Mesa.')
                                     }
                                 },
+                            },
+
+
+                            novPedido() {
+                                
+                                this.etapa = 1
+
+                                this.inputPao = ''
+                                this.inputSalada = []
+                                this.inputMolhos = []
+                                this.inputHamburguer = ''
+                                this.inputNome = ''
+                                this.inputMesa = ''
                             },
 
 
